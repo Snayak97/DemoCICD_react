@@ -3,6 +3,7 @@ version: "3.8"
 services:
   react-app:
     build: .
+    image: demoreact-app
     container_name: demoreact-app
     ports:
       - "5173:80"
