@@ -268,7 +268,7 @@ pipeline {
                     error("VERSION is not set. Cannot check image existence.")
                 }
 
-                // Check if image exists on Docker Hub
+                
                 def response = sh(
                     script: """
                         TOKEN=\$(curl -s -H "Content-Type: application/json" \
