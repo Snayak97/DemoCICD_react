@@ -288,31 +288,31 @@ pipeline {
         }
 
 
-        stage('Docker Build') {
-    steps {
-        script {
-            echo "========== DOCKER BUILD START =========="
-            try {
-                sh """
-                    which docker >/dev/null 2>&1 || { echo 'Docker is not installed'; exit 1; }
+        // stage('Docker Build') {
+        //     steps {
+        //         script {
+        //     echo "========== DOCKER BUILD START =========="
+        //     try {
+        //         sh """
+        //             which docker >/dev/null 2>&1 || { echo 'Docker is not installed'; exit 1; }
 
-                    echo "Building Docker image using docker-compose..."
-                    VERSION="${env.VERSION}" \
-                    DOCKERHUB_REPO="${env.DOCKERHUB_REPO}" \
-                    docker compose -f ${env.COMPOSE_FILE} build --no-cache
+        //             echo "Building Docker image using docker-compose..."
+        //             VERSION="${env.VERSION}" \
+        //             DOCKERHUB_REPO="${env.DOCKERHUB_REPO}" \
+        //             docker compose -f ${env.COMPOSE_FILE} build --no-cache
 
-                    echo "Tagging image for DockerHub..."
-                    docker tag ${env.DOCKERHUB_REPO}:${env.VERSION} ${env.DOCKERHUB_REPO}:${env.VERSION}
+        //             echo "Tagging image for DockerHub..."
+        //             docker tag ${env.DOCKERHUB_REPO}:${env.VERSION} ${env.DOCKERHUB_REPO}:${env.VERSION}
 
-                    echo "Cleaning unused images..."
-                    docker image prune -f
-                """
-            } catch (err) {
-                echo "Docker build failed: ${err}"
-                error("Stopping pipeline — Docker Build stage failed.")
-            }
-            echo "========== DOCKER BUILD END =========="
-        }
+        //             echo "Cleaning unused images..."
+        //             docker image prune -f
+        //         """
+        //     } catch (err) {
+        //         echo "Docker build failed: ${err}"
+        //         error("Stopping pipeline — Docker Build stage failed.")
+        //     }
+        //     echo "========== DOCKER BUILD END =========="
+        // }
     }
 }
 
