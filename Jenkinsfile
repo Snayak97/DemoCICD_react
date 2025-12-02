@@ -283,7 +283,7 @@ pipeline {
 
                 if (response == env.VERSION) {
                     echo "Docker image ${DOCKERHUB_REPO}:${env.VERSION} already exists. Skipping build?"
-                    // Optionally set a flag to skip Docker build
+                    
                     env.SKIP_DOCKER_BUILD = "true"
                 } else {
                     echo "Docker image ${DOCKERHUB_REPO}:${env.VERSION} does not exist. Will build."
