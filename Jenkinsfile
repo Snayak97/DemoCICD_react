@@ -236,7 +236,7 @@ pipeline {
             }
         }
 
-        stage('Check Docker Image Existence') {
+        // stage('Check Docker Image Existence') {
             steps {
                 script {
             echo "========== CHECK DOCKER IMAGE START =========="
