@@ -13,7 +13,8 @@ version: "3.8"
 
 services:
   react-app:
-    build: .
+    build: 
+      context: .
     image: ${DOCKERHUB_REPO}:${VERSION}
     container_name: ${CONTAINER_NAME}
     ports:
