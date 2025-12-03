@@ -190,7 +190,7 @@ pipeline {
                 echo "unit test running"
             }
         }
-        // stage('Build React App') {
+         stage('Build React App') {
                 steps {
             script {
             echo "========== BUILD START =========="
@@ -209,8 +209,9 @@ pipeline {
             echo "========== BUILD END =========="
                 }
             }
-        // }
+         }
         
+
         // stage('Docker Login') {
             steps {
                 script {
